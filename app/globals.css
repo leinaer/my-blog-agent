@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #1f2937;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --accent: #f3f4f6;
+  --accent-foreground: #1f2937;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #3b82f6;
+  --radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+    --card: #171717;
+    --card-foreground: #fafafa;
+    --popover: #171717;
+    --popover-foreground: #fafafa;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+    --secondary: #262626;
+    --secondary-foreground: #fafafa;
+    --muted: #262626;
+    --muted-foreground: #a1a1aa;
+    --accent: #262626;
+    --accent-foreground: #fafafa;
+    --destructive: #7f1d1d;
+    --destructive-foreground: #fafafa;
+    --border: #262626;
+    --input: #262626;
+    --ring: #3b82f6;
+  }
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Prose styles for blog content */
+.prose {
+  max-width: 65ch;
+  line-height: 1.75;
+}
+
+.prose h1 {
+  font-size: 2.25em;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 0.8888889em;
+  line-height: 1.1111111;
+}
+
+.prose h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3333333;
+}
+
+.prose h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  line-height: 1.6;
+}
+
+.prose h4 {
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+}
+
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose ul {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+  list-style-type: disc;
+}
+
+.prose ol {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose code {
+  font-size: 0.875em;
+  font-weight: 600;
+  background-color: var(--muted);
+  padding: 0.125em 0.25em;
+  border-radius: 0.25em;
+}
+
+.prose pre {
+  margin-top: 1.7142857em;
+  margin-bottom: 1.7142857em;
+  padding: 1em;
+  border-radius: 0.5em;
+  overflow-x: auto;
+  background-color: #1e1e1e;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: #d4d4d4;
+}
+
+.prose blockquote {
+  font-style: italic;
+  border-left: 4px solid var(--border);
+  padding-left: 1em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.prose a {
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--border);
+  padding: 0.5em 1em;
+  text-align: left;
+}
+
+.prose th {
+  background-color: var(--muted);
+  font-weight: 600;
+}
+
+.prose hr {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .prose h1 {
+    font-size: 1.875em;
+  }
+  
+  .prose h2 {
+    font-size: 1.375em;
+  }
+  
+  .prose h3 {
+    font-size: 1.125em;
+  }
+  
+  .prose table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .prose pre {
+    padding: 0.75em;
+    font-size: 0.8125em;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Focus visible improvements */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Code highlighting styles */
+.prose pre .hljs-keyword,
+.prose pre .hljs-selector-tag,
+.prose pre .hljs-title.class_,
+.prose pre .hljs-built_in {
+  color: #569cd6;
+}
+
+.prose pre .hljs-string,
+.prose pre .hljs-template-string,
+.prose pre .hljs-number,
+.prose pre .hljs-regexp,
+.prose pre .hljs-symbol {
+  color: #ce9178;
+}
+
+.prose pre .hljs-comment,
+.prose pre .hljs-quote {
+  color: #6a9955;
+  font-style: italic;
+}
+
+.prose pre .hljs-function,
+.prose pre .hljs-title.function_ {
+  color: #dcdcaa;
+}
+
+.prose pre .hljs-variable,
+.prose pre .hljs-title {
+  color: #9cdcfe;
+}
+
+.prose pre .hljs-attr,
+.prose pre .hljs-attribute {
+  color: #9cdcfe;
+}
+
+.prose pre .hljs-literal,
+.prose pre .hljs-boolean,
+.prose pre .hljs-null {
+  color: #569cd6;
+}
+
+.prose pre .hljs-type,
+.prose pre .hljs-class .hljs-title {
+  color: #4ec9b0;
+}
