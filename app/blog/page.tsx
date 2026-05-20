@@ -57,7 +57,7 @@ export default function BlogPage() {
                 <Card className="hover:shadow-lg transition-all duration-200 hover:-translate-y-1 cursor-pointer h-full">
                   <CardHeader>
                     <div className="flex items-center gap-2 mb-2">
-                      {post.tags.map((tag) => (
+                      {post.tags.map((tag: string) => (
                         <Badge key={tag} variant="secondary" className="text-xs">
                           {tag}
                         </Badge>

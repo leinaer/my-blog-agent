@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   // Extract title from content or frontmatter
   const title = metadata.title || content.match(/^# (.+)$/m)?.[1] || slug;
   const description = metadata.summary || content.match(/\*\*(.+?)\*\*/)?.[1] || "";
-  const tags = Array.isArray(metadata.tags) ? metadata.tags : (metadata.tags ? metadata.tags.split(",").map((t: string) => t.trim()) : []);
+  const tags: string[] = Array.isArray(metadata.tags) ? metadata.tags : (metadata.tags ? metadata.tags.split(",").map((t: string) => t.trim()) : []);
   const readTime = metadata.readTime || "5分钟";
   const difficulty = metadata.difficulty || "中级";
   const date = metadata.date || new Date().toISOString().split("T")[0];
@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <header className="mb-8 pb-8 border-b">
               {tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {tags.map((tag) => (
+                  {tags.map((tag: string) => (
                     <Badge key={tag} variant="secondary">{tag}</Badge>
                   ))}
                 </div>
